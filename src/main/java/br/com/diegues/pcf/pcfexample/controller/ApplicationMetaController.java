@@ -16,6 +16,12 @@ public class ApplicationMetaController {
     @Autowired
     private ApplicationMetaRepository repository;
 
+    @GetMapping(path = "/apps")
+    public ResponseEntity<List<ApplicationMeta>> applications() {
+        List<ApplicationMeta> metas = repository.findAll();
+        return ResponseEntity.ok().body(metas);
+    }
+
     @GetMapping(path = "/apps/{name}")
     public ResponseEntity<ApplicationMeta> applicationData(@PathVariable String name) {
         List<ApplicationMeta> metas = repository.findByName(name);

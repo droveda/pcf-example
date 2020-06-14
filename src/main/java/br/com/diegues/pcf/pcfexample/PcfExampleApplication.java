@@ -22,7 +22,11 @@ public class PcfExampleApplication implements CommandLineRunner {
         ApplicationMeta meta = new ApplicationMeta();
         meta.setName("MyNewApp");
         meta.setDescription("This is a completely new application!");
-
         repository.save(meta);
+
+        ApplicationMeta meta1 = new ApplicationMeta();
+        meta1.setName("CoolApp");
+        meta1.setDescription("This is a cool application!");
+        repository.save(meta1);
     }
 }
